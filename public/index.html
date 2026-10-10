@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fibonacci Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">F<span>∞</span></div>
+
+            <div class="brand">
+                <h1>Fibonacci Visualizer</h1>
+                <p>Explore the beauty of mathematics.</p>
+            </div>
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Switch to light mode"
+            >
+                ☀️ Light mode
+            </button>
+        </header>
+
+        <!-- Input and slider -->
+        <section class="panel controls">
+
+            <label for="termInput">Number of Fibonacci terms</label>
+
+            <div class="input-row">
+                <input
+                    type="number"
+                    id="termInput"
+                    min="1"
+                    max="50"
+                    step="1"
+                    value="10"
+                    placeholder="Enter a number"
+                >
+
+                <button id="generateBtn" type="button">
+                    Generate Graph
+                </button>
+            </div>
+
+            <!-- NEW: Interactive slider -->
+            <div class="slider-section">
+                <div class="slider-labels">
+                    <label for="termSlider">
+                        Explore Fibonacci terms
+                    </label>
+
+                    <span id="sliderValue">10 terms</span>
+                </div>
+
+                <input
+                    type="range"
+                    id="termSlider"
+                    min="1"
+                    max="50"
+                    value="10"
+                    step="1"
+                />
+
+                <div class="slider-range">
+                    <span>1 term</span>
+                    <span>50 terms</span>
+                </div>
+            </div>
+
+            <p class="hint">
+                Enter a whole number or move the slider to update
+                the visualizations automatically.
+            </p>
+
+            <p id="errorMessage" class="error" role="alert"></p>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <article class="stat-card">
+                <p>Total Terms</p>
+                <h2 id="totalTerms">10</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>First Term</p>
+                <h2 id="firstTerm">0</h2>
+            </article>
+
+            <article class="stat-card">
+                <p>Last Term</p>
+                <h2 id="lastTerm">34</h2>
+            </article>
+
+        </section>
+
+        <!-- Fibonacci graph -->
+        <section class="panel graph-panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Sequence Growth</h2>
+                    <p>Fibonacci value at each position</p>
+                </div>
+
+                <span class="live-badge">● LIVE GRAPH</span>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="fibonacciChart"></canvas>
+            </div>
+
+        </section>
+
+        <!-- Fibonacci spiral -->
+        <section class="panel spiral-panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Fibonacci Spiral</h2>
+                    <p>
+                        A geometric visualization inspired by the sequence
+                    </p>
+                </div>
+
+                <span class="live-badge">● SPIRAL</span>
+            </div>
+
+            <div class="spiral-container">
+                <canvas
+                    id="fibonacciSpiral"
+                    aria-label="Fibonacci squares and quarter-circle arcs"
+                ></canvas>
+            </div>
+
+            <p class="hint">
+                The squares use Fibonacci-number side lengths.
+                Quarter-circle arcs approximate the familiar Fibonacci spiral.
+            </p>
+
+        </section>
+
+        <!-- Fibonacci sequence -->
+        <section class="panel sequence-panel">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Fibonacci Sequence</h2>
+                    <p>Generated numbers in order</p>
+                </div>
+            </div>
+
+            <div id="sequenceList" class="sequence-list"></div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            Built with HTML, CSS, JavaScript, Node.js, Express & Chart.js
+        </footer>
+
+    </main>
+</body>
+</html>
